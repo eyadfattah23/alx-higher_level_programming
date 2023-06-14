@@ -6,37 +6,28 @@
  */
 int is_palindrome(listint_t **head)
 {
-	size_t len;
-	size_t i = 0;
-	size_t j;
-	int *array;
-	listint_t *c_node = *head;
+	listint_t *next, *prev = NULL, *fast = *head, *slow = *head;
 
 	if (!*head)
 		return (1);
 
-	for (len = 0; c_node; len++)
-		c_node = c_node->next;
-
-	c_node = *head;
-	array = (int *)malloc(sizeof(int) * len);
-	if (!array)
-		return (0);
-
-	while (c_node)
+	while (fast && fast->next)
 	{
-		array[i++] = c_node->n;
-		c_node = c_node->next;
+		fast = fast->next->next;
+		next = slow->next;
+		slow->next = prev;
+		prev = slow;
+		slow = next;
 	}
-	i--;
-	for (j = 0; j < i; j++, i--)
+	if (fast)
+		slow = slow->next;
+	while (prev && slow)
 	{
-		if (array[j] != array[i])
-		{
-			free(array);
+		if (slow->n != prev->n)
 			return (0);
-		}
+
+		prev = prev->next;
+		slow = slow->next;
 	}
-	free(array);
 	return (1);
 }
