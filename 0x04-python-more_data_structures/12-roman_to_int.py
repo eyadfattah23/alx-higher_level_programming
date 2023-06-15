@@ -26,7 +26,8 @@ def roman_to_int(roman_string):
         else:
             res += dict[roman_string[i - 1]]
             i += 1
-    num = roman_string[-2:]
-    if num not in dict:
+    if len(roman_string) == 1:
+        res += dict[roman_string[0]]
+    if roman_string[-2:] not in dict:
         res += dict[roman_string[-1]]
     return res
