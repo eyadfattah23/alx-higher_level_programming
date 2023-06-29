@@ -2,11 +2,10 @@
 def safe_print_list(my_list=[], x=0):
     i = 0
     try:
-        while my_list[i] and i < x:
-            print(f"{my_list[i]}", end='')
+        while i < x and my_list[i]:
+            print(my_list[i],end='')
             i += 1
-        print()
-    except IndexError:
+    except Exception:
         pass
-        print()
+    print()
     return i
