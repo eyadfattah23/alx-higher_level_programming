@@ -24,10 +24,10 @@ class Square:
             TypeError: size not an integer,
             ValueError: size is less than 0
         """
-        self.__size = size
+        self.size = size
         if not isinstance(size, int):
             raise TypeError('size must be an integer')
-        if self.__size < 0:
+        if self.size < 0:
             raise ValueError('size must be >= 0')
 
     @property

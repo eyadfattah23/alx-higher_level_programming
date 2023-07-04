@@ -12,23 +12,19 @@ class Square:
 
     Raises:
             TypeError: size not an integer,
+                    position not a tuple of 2 positive integers
             ValueError: size is less than 0
     """
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """initializes a square
 
         Args:
-            size (int): size of the square
-
-        Raises:
-            TypeError: size not an integer,
-            ValueError: size is less than 0
+            size (int, optional): size of the square. Defaults to 0.
+            position (tuple, optional): position of the square.
+                                    Defaults to (0, 0).
         """
         self.size = size
-        if not isinstance(size, int):
-            raise TypeError('size must be an integer')
-        if self.size < 0:
-            raise ValueError('size must be >= 0')
+        self.position = position
 
     @property
     def size(self):
@@ -65,7 +61,31 @@ class Square:
         """
         if self.size == 0:
             print()
+        for p in range(self.__position[1]):
+            print()
         for i in range(self.__size):
+            for k in range(self.__position[0]):
+                print(' ', end='')
             for j in range(self.__size):
                 print('#', end='')
             print()
+
+    @property
+    def position(self):
+        """retrieve position of the square
+
+        Returns:
+            tuple: position of the square
+        """
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        if not isinstance(value, tuple) \
+            or not isinstance(value[0], int) \
+                or not isinstance(value[1], int):
+            raise TypeError('position must be a tuple of 2 positive integers')
+        elif value[0] < 0 or value[1] < 0:
+            raise TypeError('position must be a tuple of 2 positive integers')
+        else:
+            self.__position = value
