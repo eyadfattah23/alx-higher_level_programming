@@ -42,5 +42,5 @@ for attack in attacks:
         if p1.health <= 0:
             print(f'{p1.name} has died and {p2.name} is victorious')
             break
-print('Game Over')   
+print('Game Over') 
     
