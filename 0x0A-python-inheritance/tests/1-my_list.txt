@@ -6,26 +6,26 @@ Testing the print_sorted() method
 ----------------------------------------------------------------
 First, let's import the MyList class:
 
-	>>> MyList = __import__("1-my_list").MyList
+    >>> MyList = __import__("1-my_list").MyList
 
 Now, let's create a list of integers and a list of mixed data types, and then create instances of the MyList class using these lists:
 json
 
-	>>> int_list = [5, 3, 2, 8, 4]
-	>>> mixed_list = [5, "hello", 3.5, None, True]
-	>>> int_list_obj = MyList(int_list)
-	>>> mixed_list_obj = MyList(mixed_list)
+    >>> int_list = [5, 3, 2, 8, 4]
+    >>> mixed_list = [5, "hello", 3.5, None, True]
+    >>> int_list_obj = MyList(int_list)
+    >>> mixed_list_obj = MyList(mixed_list)
 
 Next, let's test the print_sorted() method on the int_list_obj and mixed_list_obj objects:
 scheme
 
-	>>> int_list_obj.print_sorted()
-	[2, 3, 4, 5, 8]
+    >>> int_list_obj.print_sorted()
+    [2, 3, 4, 5, 8]
 
-	>>> mixed_list_obj.print_sorted()
-	Traceback (most recent call last):
-	...
-	TypeError: '<' not supported between instances of 'str' and 'int'
+    >>> mixed_list_obj.print_sorted()
+    Traceback (most recent call last):
+    ...
+    TypeError: '<' not supported between instances of 'str' and 'int'
 
 This should output the int_list sorted in ascending order and raise a TypeError for the mixed_list because it contains both strings and integers which cannot be compared.
 Testing the append() method
@@ -33,55 +33,62 @@ Testing the append() method
 Next, let's test the append() method of the MyList class. First, let's create an empty instance of MyList and append some integers to it:
 python-repl
 
-	>>> my_list = MyList()
-	>>> my_list.append(5)
-	>>> my_list.append(3)
-	>>> my_list.append(7)
-	>>> my_list.append(1)
+    >>> my_list = MyList()
+    >>> my_list.append(5)
+    >>> my_list.append(3)
+    >>> my_list.append(7)
+    >>> my_list.append(1)
 
 Now, let's test that the list contains the expected values:
 
-	>>> my_list
-	[5, 3, 7, 1]
+    >>> my_list
+    [5, 3, 7, 1]
 
 This should output the list with the appended values.
 Testing the extend() method
 
 Next, let's test the extend() method of the MyList class. First, let's create an instance of MyList and extend it with a list of integers:
 
-	>>> my_list = MyList([5, 3])
-	>>> my_list.extend([7, 1, 4])
+    >>> my_list = MyList([5, 3])
+    >>> my_list.extend([7, 1, 4])
 
 Now, let's test that the list contains the expected values:
 
-	>>> my_list
-	[5, 3, 7, 1, 4]
+    >>> my_list
+    [5, 3, 7, 1, 4]
 
 This should output the list with the extended values.
 Testing the insert() method
 
 Finally, let's test the insert() method of the MyList class. First, let's create an instance of MyList and insert some values at specific positions:
 
-	>>> my_list = MyList([5, 3, 7, 1, 4])
-	>>> my_list.insert(2, 2)
-	>>> my_list.insert(5, 6)
+    >>> my_list = MyList([5, 3, 7, 1, 4])
+    >>> my_list.insert(2, 2)
+    >>> my_list.insert(5, 6)
 
 Now, let's test that the list contains the expected values:
 
-	>>> my_list
-	[5, 3, 2, 7, 1, 6, 4]
+    >>> my_list
+    [5, 3, 2, 7, 1, 6, 4]
 
 This should output the list with the values inserted at the specified positions.	
 
 Now let's test None
-	>>> my_list.append(None)
-	>>> my_list.print_sorted()
-	Traceback (most recent call last):
-	...
-	TypeError: '<' not supported between instances of 'NoneType' and 'int'
+    >>> my_list.append(None)
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+    ...
+    TypeError: '<' not supported between instances of 'NoneType' and 'int'
 
 empty list
     >>> my_list = MyList([])
     >>> my_list.print_sorted()
     >>> my_list = MyList()
     >>> my_list.print_sorted()
+
+Now test adding excess args
+    >>> my_list = MyList([1, 2, 3, 4])
+    >>> my_list.print_sorted(77)
+    Traceback (most recent call last):
+    ...
+    TypeError: MyList.print_sorted() takes 1 positional argument but 2 were given
