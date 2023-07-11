@@ -79,3 +79,9 @@ Now let's test None
 	Traceback (most recent call last):
 	...
 	TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+empty list
+    >>> my_list = MyList([])
+    >>> my_list.print_sorted()
+    >>> my_list = MyList()
+    >>> my_list.print_sorted()
