@@ -20,12 +20,13 @@ class Square(Rectangle):
         self.integer_validator('size', self.__size)
 
     def area(self):
-            """calculate area of square
-    
-            Returns:
-                int: area of square
-            """
-            return self.__size ** 2
+        """calculate area of square
+
+        Returns:
+            int: area of square
+        """
+        return self.__size ** 2
+
     def __str__(self):
         """get the string representation of the square int #
         """
