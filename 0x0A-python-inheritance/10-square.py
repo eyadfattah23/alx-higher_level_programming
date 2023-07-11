@@ -26,12 +26,3 @@ class Square(Rectangle):
             int: area of square
         """
         return self.__size ** 2
-
-    def __str__(self):
-        """get the string representation of the square int #
-        """
-        if self.__size == 0:
-            return ('')
-        else:
-            name = 'Rectangle'
-            return f"[{name}] {self.__size}/{self.__size}"
