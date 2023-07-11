@@ -74,7 +74,8 @@ Now, let's test that the list contains the expected values:
 This should output the list with the values inserted at the specified positions.	
 
 Now let's test None
-	>>> my_list2 = MyList(None)
+	>>> my_list.append(None)
+	>>> my_list.print_sorted()
 	Traceback (most recent call last):
 	...
-	TypeError: 'NoneType' object is not iterable
+	TypeError: '<' not supported between instances of 'NoneType' and 'int'
