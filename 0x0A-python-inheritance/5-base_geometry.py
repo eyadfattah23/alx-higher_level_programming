@@ -2,6 +2,7 @@
 """defines class BaseGeometry.
 """
 
+
 class BaseGeometry():
     """an empty class
     """
