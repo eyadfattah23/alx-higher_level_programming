@@ -9,17 +9,17 @@ Testing the integer_validator method
 
     >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
-
-::
-
-    >>> bg = BaseGeometry()
-
 ::
 
     >>> bg = BaseGeometry(None)
     Traceback (most recent call last):
     ...
     TypeError: BaseGeometry() takes no arguments
+
+::
+
+    >>> bg = BaseGeometry()
+
 
 ::
 
