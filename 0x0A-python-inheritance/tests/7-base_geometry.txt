@@ -1,9 +1,15 @@
-The ``7-base_geometry`` module
+7-base_geometry.txt
 
-=========================
-This is a test file for the BaseGeometry class in the 7-base_geometry module.
-Testing the integer_validator method
-========================
+=======================
+How to Use 7-base_geometry.py
+=======================
+
+This module defines ``BaseGeometry `` class.
+
+Usage
+=====
+
+``MyList`` class have two Public instance methods ``area(self)`` raises an Exception and `` integer_validator(self, name, value)`` that validates value.
 
 ::
 
