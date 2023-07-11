@@ -70,6 +70,9 @@ Test that calling the integer_validator() method with a value that is not an int
 
     bool:
     >>> shape.integer_validator('age', True)
+    Traceback (most recent call last):
+    ...
+    TypeError: age must be an integer
 
     set:
     >>> shape.integer_validator('age',{3})
