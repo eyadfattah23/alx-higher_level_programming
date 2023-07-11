@@ -144,3 +144,8 @@ Testing the integer_validator method
     Traceback (most recent call last):
     ...
     ValueError: age must be greater than 0
+
+::
+
+    >>> print(bg.integer_validator) # doctest: +ELLIPSIS
+    <bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at...>>
