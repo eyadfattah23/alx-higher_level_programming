@@ -40,4 +40,4 @@ class Rectangle(BaseGeometry):
             return ('')
         else:
             name = self.__class__.__name__
-            return f"[{name}] {self.__width}/{self.__height}"
+            return f"[Rectangle] {self.__width}/{self.__height}"
