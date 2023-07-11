@@ -6,120 +6,140 @@ Testing the integer_validator method
 ----------------------------------------------------------------
 First, let's import the BaseGeometry class:
 ::
+
     >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 
 ::
+
     >>> shape = BaseGeometry()
 
 ::
+
     >>> shape = BaseGeometry(None)
     Traceback (most recent call last):
     ...
     TypeError: BaseGeometry() takes no arguments
 
 ::
+
     >>> shape.area()
     Traceback (most recent call last):
     ...
     Exception: area() is not implemented
 
 ::
+
     >>> shape.area(1)
     Traceback (most recent call last):
     ...
     TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
 
 ::
+
     >>> shape.integer_validator('age', 19)
 
-Test that calling the integer_validator() method with a value that is not an integer raises a TypeError.
-    float:
 ::
+
     >>> shape.integer_validator('age', 19.5)
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
 
 ::
+
     >>> shape.integer_validator('age', 'eyad')
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
 
 ::
+
     >>> shape.integer_validator('age',)
     Traceback (most recent call last):
     ...
     TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
 ::
+
     >>> shape.integer_validator('age')
     Traceback (most recent call last):
     ...
     TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
 ::
+
     >>> shape.integer_validator()
     Traceback (most recent call last):
     ...
     TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
 ::    
+
     >>> shape.integer_validator('age',[3])
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
 
 ::
+
     >>> shape.integer_validator('	', 3)
 
 ::
+
     >>> shape.integer_validator('age', True)
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
 
 ::
+
     >>> shape.integer_validator('age',{3})
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
 
 ::
+
     >>> shape.integer_validator('age',{3: '3'})
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
 
 ::
+
     >>> shape.integer_validator('age', (1,2))
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
 
 ::
+
     >>> shape.integer_validator('age',None)
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
 
 ::
+
     >>> shape.integer_validator(None,3)
 
 ::
+
     >>> shape.integer_validator('age',shape)
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
 
 ::
+
     >>> shape.integer_validator('age', -19)
     Traceback (most recent call last):
     ...
     ValueError: age must be greater than 0
 
 ::
+
     >>> shape.integer_validator('age', 0)
     Traceback (most recent call last):
     ...
