@@ -3,8 +3,8 @@ The ``7-base_geometry`` module
 =========================
 This is a test file for the BaseGeometry class in the 7-base_geometry module.
 Testing the integer_validator method
-----------------------------------------------------------------
-First, let's import the BaseGeometry class:
+========================
+
 ::
 
     >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
