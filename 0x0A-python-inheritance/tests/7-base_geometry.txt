@@ -149,3 +149,10 @@ Testing the integer_validator method
 
     >>> print(bg.integer_validator) # doctest: +ELLIPSIS
     <bound method BaseGeometry.integer_validator of <7-base_geometry.BaseGeometry object at...>>
+
+::
+
+    >>> bg.integer_validator("my_int", 1, 2)
+    Traceback (most recent call last):
+	...
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
