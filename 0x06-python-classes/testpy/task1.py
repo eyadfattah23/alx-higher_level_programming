@@ -70,7 +70,7 @@ while True:
         y = round(random.uniform(0, x), 2)
         p1.health = p1.health - (attack2 - p1.max_defense* y)
         print(f'{p2.name} attacks {p1.name} and deals {round((attack2 - p1.max_defense* y), 2)}')
-        print(f'{p2.name} health is {p2.health}')
+        print(f'{p1.name} health is {p1.health}')
         if p1.health <= 0:
             print(f'{p1.name} has died and {p2.name} is victorious')
             break
