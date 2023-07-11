@@ -92,3 +92,7 @@ Now test adding excess args
     Traceback (most recent call last):
     ...
     TypeError: print_sorted() takes 1 positional argument but 2 were given
+
+Now let's test the type
+    >>> isinstance(my_list, list)
+    True
