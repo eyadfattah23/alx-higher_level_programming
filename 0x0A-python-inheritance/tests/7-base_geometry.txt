@@ -119,5 +119,3 @@ Test that calling the integer_validator() method with a value that is less than 
     Traceback (most recent call last):
     ...
     ValueError: age must be greater than 0
-
--------------------------------------------------
