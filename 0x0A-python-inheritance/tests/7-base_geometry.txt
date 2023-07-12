@@ -71,13 +71,13 @@ Testing the integer_validator method
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
-	
+
 ::
 
     >>> bg.integer_validator("age", -19)
     Traceback (most recent call last):
 	...
-    ValueError: my_int must be greater than 0
+    ValueError: age must be greater than 0
 
 ::
 
