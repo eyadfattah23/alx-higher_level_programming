@@ -1,20 +1,14 @@
-7-base_geometry.txt
+The ``7-base_geometry`` module
 
-=======================
-How to Use 7-base_geometry.py
-=======================
+=========================
+This is a test file for the BaseGeometry class in the 7-base_geometry module.
+Testing the integer_validator method
+========================
 
-This module defines ``BaseGeometry `` class.
-
-Usage
-=====
-
-``MyList`` class have two Public instance methods ``area(self)`` raises an Exception and `` integer_validator(self, name, value)`` that validates value.
 
 ::
 
-    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
+    >>> BaseGeometry = __import__("7-base_geometry").BaseGeometry
 
 ::
 	>>> m = __import__("7-base_geometry").__doc__
@@ -77,7 +71,12 @@ Usage
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
+::
 
+    >>> bg.integer_validator("age", -19)
+    Traceback (most recent call last):
+	...
+    ValueError: my_int must be greater than 0
 ::
 
     >>> bg.integer_validator('age', 'eyad')
@@ -101,7 +100,7 @@ Usage
 
 ::    
 
-    >>> bg.integer_validator('age',[3,4,5])
+    >>> bg.integer_validator('age',[3, 4, 5])
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
@@ -115,7 +114,7 @@ Usage
 
 ::
 
-    >>> bg.integer_validator('age',{3})
+    >>> bg.integer_validator('age',{3, 4, 5})
     Traceback (most recent call last):
     ...
     TypeError: age must be an integer
