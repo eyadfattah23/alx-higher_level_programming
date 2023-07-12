@@ -15,6 +15,6 @@ def add_attribute(object, name, value):
         TypeError: if u it doesn't have __dict__ attribute
     """
     if hasattr(object, '__dict__'):
-        object.name = value
+        setattr(object, name, value)
     else:
         raise TypeError('can\'t add new attribute')
