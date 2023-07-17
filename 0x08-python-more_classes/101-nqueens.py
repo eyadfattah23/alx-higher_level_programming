@@ -6,7 +6,16 @@ import sys
 cols = set()
 pos_diag = set()  # (row + col)
 neg_diag = set()  # (row - col)
-n = int(sys.argv[1])
+
+try:
+    n = int(sys.argv[1])
+except:
+    print("N must be a number")
+    sys.exit(1)
+
+if n < 4:
+    print('N must be at least 4')
+    sys.exit(1)
 
 res = []
 board = list(['0'] * n for i in range(n))
