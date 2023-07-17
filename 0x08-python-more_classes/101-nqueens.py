@@ -6,10 +6,12 @@ import sys
 cols = set()
 pos_diag = set()  # (row + col)
 neg_diag = set()  # (row - col)
-
+if len(sys.argv) != 2:
+    print('Usage: nqueens N')
+    sys.exit(1)
 try:
     n = int(sys.argv[1])
-except:
+except ValueError:
     print("N must be a number")
     sys.exit(1)
 
