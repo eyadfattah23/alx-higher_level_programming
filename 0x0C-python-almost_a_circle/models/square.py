@@ -38,9 +38,9 @@ class Square(Rectangle):
                 elif i == 1:
                     self.__size = arg
                 elif i == 2:
-                    self.__x = arg
+                    self.x = arg
                 elif i == 3:
-                    self.__y = arg
+                    self.y = arg
         elif kwargs:
             for k in kwargs:
                 if k == 'id':
@@ -48,6 +48,6 @@ class Square(Rectangle):
                 elif k == 'size':
                     self.__size = kwargs[k]
                 elif k == 'x':
-                    self.__x = kwargs[k]
+                    self.x = kwargs[k]
                 elif k == 'y':
-                    self.__y = kwargs[k]
+                    self.y = kwargs[k]
