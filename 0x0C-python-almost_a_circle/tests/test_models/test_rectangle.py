@@ -4,6 +4,8 @@
 import unittest
 from models.rectangle import Rectangle
 from models.base import Base
+from io import StringIO
+from unittest import mock
 
 
 class TestRectangle(unittest.TestCase):
@@ -56,6 +58,22 @@ class TestRectangle(unittest.TestCase):
         """test area calculation"""
         r1 = Rectangle(3, 2)
         self.assertAlmostEqual(r1.area(), 6)
+
+    def test_display(self):
+        """test display method
+        """
+
+        with mock.patch('sys.stdout', new=StringIO()) as ff:
+            r = Rectangle(3, 3)
+            r.display()
+            output = "###\n###\n###\n"
+            self.assertEqual(output, ff.getvalue())
+
+        with mock.patch('sys.stdout', new=StringIO()) as ff:
+            r = Rectangle(3, 2, 2, 3)
+            r.display()
+            output = "\n\n\n  ###\n  ###\n"
+            self.assertEqual(output, ff.getvalue())
 
 
 if __name__ == "__main__":
