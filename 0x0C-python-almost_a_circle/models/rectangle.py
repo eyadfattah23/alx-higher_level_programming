@@ -2,7 +2,7 @@
 """define class rectangle that inherits from base"""
 
 
-Base = __import__('base').Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -20,7 +20,68 @@ class Rectangle(Base):
             id (_type_, optional): _description_. Defaults to None.
         """
         super().__init__(id)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
+
+    @property
+    def width(self):
+        """get the width of this Rectangle"""
+        return self.__width
+
+    @width.setter
+    def width(self, width):
+        """set the width of this Rectangle"""
+        if not isinstance(width, int):
+            raise TypeError('width must be an integer')
+        if width <= 0:
+            raise ValueError('width must be > 0')
         self.__width = width
+
+    @property
+    def height(self):
+        """get the height of this Rectangle"""
+        return self.__height
+
+    @height.setter
+    def height(self, height):
+        """set the height of this Rectangle"""
+        if not isinstance(height, int):
+            raise TypeError('height must be an integer')
+        if height <= 0:
+            raise ValueError('height must be > 0')
         self.__height = height
-        self.__x = x
-        self.__y = y
+
+    @property
+    def x(self):
+        """get x"""
+        return self.__x
+
+    @x.setter
+    def x(self, value):
+        """set x"""
+        if not isinstance(value, int):
+            raise TypeError('x must be an integer')
+        if value < 0:
+            raise ValueError('x must be >= 0')
+        self.__x = value
+
+    @property
+    def y(self):
+        """get y"""
+        return self.__y
+
+    @y.setter
+    def y(self, value):
+        """set y"""
+        if not isinstance(value, int):
+            raise TypeError('y must be an integer')
+        if value < 0:
+            raise ValueError('y must be >= 0')
+        self.__y = value
+
+    def area(self):
+        """calculates area"""
+
+        return self.__width * self.__height
