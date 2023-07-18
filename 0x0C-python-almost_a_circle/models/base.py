@@ -21,5 +21,8 @@ class Base:
 
     def to_json_string(list_dictionaries):
         """returns the JSON string representation of list_dictionaries"""
-        import json
-        return json.dumps(list_dictionaries)
+        if not list_dictionaries or len(list_dictionaries) == 0:
+            return "[]"
+        else:
+            import json
+            return json.dumps(list_dictionaries)
