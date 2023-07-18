@@ -21,4 +21,5 @@ class Base:
 
     def to_json_string(list_dictionaries):
         """returns the JSON string representation of list_dictionaries"""
+        import json
         return json.dumps(list_dictionaries)
