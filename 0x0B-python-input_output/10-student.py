@@ -5,6 +5,7 @@
 class Student:
     """defines a student
     """
+
     def __init__(self, first_name, last_name, age):
         """initialize a Student
         """
@@ -17,7 +18,7 @@ class Student:
         """
         jdict = {}
         idict = self.__dict__
-        if attrs:
+        if attrs is not None:
             for attr in attrs:
                 if attr in idict:
                     jdict[attr] = idict[attr]
