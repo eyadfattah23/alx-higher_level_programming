@@ -56,6 +56,5 @@ class Base:
         """returns an instance with all attributes already set"""
         from models.rectangle import Rectangle
         s = Rectangle(5, 6)
-        for k, v in dictionary.items():
-            s.update(k=v)
+        s.update(**dictionary)
         return s
