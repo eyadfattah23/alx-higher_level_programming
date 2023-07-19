@@ -133,7 +133,7 @@ class TestRectangle(unittest.TestCase):
         r2.y = 0
         self.assertEqual(str(r2), "[Rectangle] (0) 0/0 - 5/5")
 
-    def test_update(self):
+    def test_update_no_args(self):
         """test update method that assigns an argument to each attribute"""
         r1 = Rectangle(10, 10, 10, 10)
         r1.update()
@@ -141,6 +141,10 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, 10)
         self.assertEqual(r1.x, 10)
         self.assertEqual(r1.y, 10)
+
+    def test_update_args(self):
+        """test update method that assigns an argument to each attribute"""
+        r1 = Rectangle(10, 10, 10, 10)
 
         r1.update(89)
         self.assertEqual(r1.id, 89)
@@ -167,6 +171,8 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.x, 4)
         self.assertEqual(r1.y, 5)
 
+    def test_update_kwargs(self):
+        """test update method that assigns an argument to each attribute"""
         r1 = Rectangle(10, 10, 10, 10)
         r1.update(height=1)
         self.assertEqual(r1.height, 1)
