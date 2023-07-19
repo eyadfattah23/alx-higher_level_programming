@@ -172,6 +172,13 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.x, 4)
         self.assertEqual(r1.y, 5)
 
+        r1.update(89, 2, 3, 4, 5, 8)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.width, 2)
+        self.assertEqual(r1.height, 3)
+        self.assertEqual(r1.x, 4)
+        self.assertEqual(r1.y, 5)
+
     def test_update_kwargs(self):
         """test update method that assigns an argument to each attribute"""
         r1 = Rectangle(10, 10, 10, 10)
@@ -194,6 +201,31 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r1.height, 2)
         self.assertEqual(r1.y, 3)
         self.assertEqual(r1.width, 4)
+
+        r1 = Rectangle(10, 10, 10, 10, 8)
+        r1.update(edo=5)
+        self.assertEqual(r1.x, 10)
+        self.assertEqual(r1.height, 10)
+        self.assertEqual(r1.y, 10)
+        self.assertEqual(r1.width, 10)
+
+    def test_to_dict(self):
+        """test to_dictionary() method"""
+        r1 = Rectangle(10, 2, 1, 9, 1)
+        r1_dictionary = r1.to_dictionary()
+        self.assertDictEqual(
+            r1_dictionary, {'x': 1, 'y': 9, 'id': 1, 'height': 2, 'width': 10})
+        self.assertIsInstance(r1_dictionary, dict)
+        r2 = Rectangle(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.x, 1)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.y, 9)
+        self.assertEqual(r1.width, 10)
+        r2 = Rectangle(1, 1)
+        with self.assertRaises(TypeError):
+            r2.to_dictionary(55)
 
 
 if __name__ == "__main__":
