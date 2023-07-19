@@ -55,6 +55,12 @@ class Base:
     def create(cls, **dictionary):
         """returns an instance with all attributes already set"""
         from models.rectangle import Rectangle
-        s = Rectangle(5, 6)
-        s.update(**dictionary)
-        return s
+        from models.square import Square
+        if dictionary.get('width'):
+            r = Rectangle(5, 6)
+            r.update(**dictionary)
+            return r
+        if dictionary.get('size'):
+            s = Square(5)
+            s.update(**dictionary)
+            return s
