@@ -75,7 +75,6 @@ class Base:
             return []
         else:
             with open(file, 'r') as f:
-                lis = []
-                for instance in cls.from_json_string(cls.to_json_string(json.load(f))):
-                    lis.append(cls.create(**instance))
-                return lis
+                return [cls.create(**instance) for instance in
+                        cls.from_json_string(cls.to_json_string(
+                            json.load(f)))]
