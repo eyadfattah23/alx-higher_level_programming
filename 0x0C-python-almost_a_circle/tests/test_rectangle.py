@@ -103,6 +103,24 @@ class TestRectangle(unittest.TestCase):
             output = "\n\n\n  ###\n  ###\n"
             self.assertEqual(output, ff.getvalue())
 
+        with mock.patch('sys.stdout', new=StringIO()) as ff:
+            r = Rectangle(3, 2, 3, 2)
+            r.display()
+            output = "\n\n   ###\n   ###\n"
+            self.assertEqual(output, ff.getvalue())
+
+        with mock.patch('sys.stdout', new=StringIO()) as ff:
+            r = Rectangle(3, 2, 0, 3)
+            r.display()
+            output = "\n\n\n###\n###\n"
+            self.assertEqual(output, ff.getvalue())
+
+        with mock.patch('sys.stdout', new=StringIO()) as ff:
+            r = Rectangle(3, 2, 2, 0)
+            r.display()
+            output = "  ###\n  ###\n"
+            self.assertEqual(output, ff.getvalue())
+
     def test_str(self):
         """test str representation"""
 
