@@ -126,6 +126,7 @@ class TestRectangle(unittest.TestCase):
 
         r1 = Rectangle(4, 6, 2, 1, 12)
         r2 = Rectangle(5, 5, 1)
+        r2.id = 14
         self.assertEqual(str(r1), "[Rectangle] (12) 2/1 - 4/6")
         self.assertEqual(str(r2), "[Rectangle] (14) 1/0 - 5/5")
         r2.id = 0
