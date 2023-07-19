@@ -64,3 +64,18 @@ class Base:
             s = Square(5)
             s.update(**dictionary)
             return s
+
+    @classmethod
+    def load_from_file(cls):
+        """returns a list of instances"""
+        from os.path import exists
+        import json
+        file = f"{cls.__name__}.json"
+        if not exists(file):
+            return []
+        else:
+            with open(file, 'r') as f:
+                lis = []
+                for instance in cls.from_json_string(cls.to_json_string(json.load(f))):
+                    lis.append(cls.create(**instance))
+                return lis
