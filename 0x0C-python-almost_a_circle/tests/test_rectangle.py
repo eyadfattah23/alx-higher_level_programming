@@ -11,28 +11,51 @@ from unittest import mock
 class TestRectangle(unittest.TestCase):
     """Rectangle class test class"""
 
+    def tearDown(self) -> None:
+        return super().tearDown()
+
     def test_init(self):
         """test initialization"""
         r1 = Rectangle(10, 10)
         self.assertIsInstance(r1, Base)
+        r1.id = 12
+        self.assertAlmostEqual(r1.id, 12)
 
-    def test_width(self):
-        """test width"""
         with self.assertRaises(TypeError):
-            r4 = Rectangle(10, '2')
-        with self.assertRaises(ValueError):
-            r5 = Rectangle(10, 0)
-        r6 = Rectangle(10, 5)
-        self.assertAlmostEqual(r6.width, 10)
+            r1 = Rectangle()
+
+        with self.assertRaises(TypeError):
+            r1 = Rectangle(10, 10, 10, 10, 10, 10)
 
     def test_height(self):
         """test height"""
         with self.assertRaises(TypeError):
+            r4 = Rectangle(10, '2')
+        with self.assertRaises(TypeError):
+            r5 = Rectangle(10, None)
+        with self.assertRaises(TypeError):
+            r5 = Rectangle(10, [5])
+
+        with self.assertRaises(ValueError):
+            r5 = Rectangle(10, 0)
+        with self.assertRaises(ValueError):
+            r5 = Rectangle(10, -1)
+        r6 = Rectangle(10, 5)
+        self.assertAlmostEqual(r6.height, 5)
+
+    def test_width(self):
+        """test width"""
+        with self.assertRaises(TypeError):
             r4 = Rectangle('2', 10)
+        with self.assertRaises(TypeError):
+            r5 = Rectangle(None, 10)
+
+        with self.assertRaises(ValueError):
+            r5 = Rectangle(0, 10)
         with self.assertRaises(ValueError):
             r5 = Rectangle(-1, 10)
         r6 = Rectangle(10, 5)
-        self.assertAlmostEqual(r6.height, 5)
+        self.assertAlmostEqual(r6.width, 10)
 
     def test_xy(self):
         """test x and y coordinates"""
@@ -44,6 +67,11 @@ class TestRectangle(unittest.TestCase):
 
         r.y = 5
         self.assertAlmostEqual(r.x, 5)
+
+        r.x = 0
+        r.y = 0
+        self.assertAlmostEqual(r.x, 0)
+        self.assertAlmostEqual(r.x, 0)
 
         with self.assertRaises(TypeError):
             r.x = 'y'
