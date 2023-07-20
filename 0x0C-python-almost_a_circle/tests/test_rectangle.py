@@ -122,6 +122,9 @@ class TestRectangle(unittest.TestCase):
             output = "  ###\n  ###\n"
             self.assertEqual(output, ff.getvalue())
 
+        with self.assertRaises(TypeError):
+            r.display(5)
+
     def test_str(self):
         """test str representation"""
 
