@@ -7,6 +7,7 @@ from models.rectangle import Rectangle
 from models.square import Square
 from json import load, loads, dump, dumps
 from os.path import exists
+from os import remove
 
 
 class TestBase(unittest.TestCase):
@@ -126,3 +127,32 @@ class TestBase(unittest.TestCase):
         s2 = Square.create(**s1_dictionary)
         self.assertEqual(str(s1), "[Square] (2) 8/9 - 4")
         self.assertEqual(str(s2), "[Square] (2) 8/9 - 4")
+
+    def test_read_from_file(self):
+        """test read from file
+        """
+        r1 = Rectangle(10, 9, 8, 7)
+        r2 = Rectangle(2, 3)
+        list_input = [r1, r2]
+        Rectangle.save_to_file(list_input)
+        list_output = Rectangle.load_from_file()
+        self.assertEqual(list_output[0].x, 8)
+        self.assertEqual(list_output[1].height, 3)
+
+        r1 = Rectangle(12, 7, 8, 3, 44)
+        r2 = Rectangle(24, 23, 19, 1, 5)
+        Rectangle.save_to_file([r1, r2])
+        with open('Rectangle.json', 'r', encoding='utf-8') as myFile:
+            text = myFile.read()
+        rs = Rectangle.load_from_file()
+        self.assertEqual(rs[0].width, 12)
+        self.assertEqual(rs[1].id, 5)
+        self.assertEqual(rs[1].x, 19)
+
+        try:
+            remove('Square.json')
+        except:
+            pass
+        list_output = Square.load_from_file()
+        self.assertEqual(len(list_output), 0)
+        self.assertEqual(list, type(list_output))
