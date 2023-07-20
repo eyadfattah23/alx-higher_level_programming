@@ -85,3 +85,9 @@ class TestBase(unittest.TestCase):
                 lis = eval(file.read())
             self.assertListEqual(
                 lis, [{"y": 8, "x": 2, "id": 1, "size": 10}])
+
+            b = Base()
+            b.save_to_file([1, 2, 3, 'e', True])
+            with open("Base.json", "r") as file:
+                lis = eval(file.read())
+            self.assertListEqual(lis, [1, 2, 3, 'e', True])
