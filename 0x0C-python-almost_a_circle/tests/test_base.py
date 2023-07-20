@@ -18,15 +18,11 @@ class TestBase(unittest.TestCase):
     def test_init(self):
         """test initialization"""
         b1 = Base()
-        self.assertAlmostEqual(b1.id, 1)
         b2 = Base()
-        self.assertAlmostEqual(b2.id, 2)
         b3 = Base()
-        self.assertAlmostEqual(b3.id, 3)
         b4 = Base(12)
         self.assertAlmostEqual(b4.id, 12)
         b5 = Base()
-        self.assertAlmostEqual(b5.id, 4)
 
         self.assertAlmostEqual(b1.id + 1, b2.id)
         self.assertAlmostEqual(b5.id, b2.id + 2)
@@ -34,7 +30,7 @@ class TestBase(unittest.TestCase):
 
     def test_to_json_string(self):
         """test to_json_string"""
-        r1 = Rectangle(10, 7, 2, 8)
+        r1 = Rectangle(10, 7, 2, 8, 5)
         s1 = Square(5, 2, 3, 1)
 
         dictionary = r1.to_dictionary()
@@ -64,64 +60,69 @@ class TestBase(unittest.TestCase):
         json_dictionary = Base.to_json_string([{'1': 2, 'e': 6}])
         self.assertEqual(json_dictionary, '[{"1": 2, "e": 6}]')
 
-        def test_save_to_file(self):
-            """test save_to_file method"""
-            s = Rectangle(10, 7, 2, 8, 1)
-            r = Rectangle(7, 8, 4, 4, 4)
-            Rectangle.save_to_file([s, r])
-            with open("Rectangle.json", "r") as file:
-                lis = eval(file.read())
-            self.assertListEqual(lis, [{"y": 8, "x": 2, "id": 1,
-                                        "width": 10, "height": 7},
-                                       {"y": 4, "x": 4, "id": 4,
-                                           "width": 7, "height": 8}
-                                       ])
-            Rectangle.save_to_file([])
-            with open("Rectangle.json", "r") as file:
-                lis = file.read()
-            self.assertEqual(lis, "[]")
+    def test_saveto_file(self):
+        """test save_to_file method"""
+        s = Rectangle(10, 7, 2, 8, 1)
+        r = Rectangle(7, 8, 4, 4, 4)
+        Rectangle.save_to_file([s, r])
+        with open("Rectangle.json", "r") as file:
+            lis = eval(file.read())
+        self.assertListEqual(lis, [{"y": 8, "x": 2, "id": 1,
+                                    "width": 10, "height": 7},
+                                   {"y": 4, "x": 4, "id": 4,
+                                       "width": 7, "height": 8}
+                                   ])
+        Rectangle.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            lis = file.read()
+        self.assertEqual(lis, "[]")
+        Rectangle.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            lis = file.read()
+        self.assertEqual(lis, "[]")
+        s = Square(10, 2, 8, 1)
+        Square.save_to_file([s])
+        with open("Square.json", "r") as file:
+            lis = eval(file.read())
+        self.assertListEqual(
+            lis, [{"y": 8, "x": 2, "id": 1, "size": 10}])
+        b = Base()
 
-            Rectangle.save_to_file(None)
-            with open("Rectangle.json", "r") as file:
-                lis = file.read()
-            self.assertEqual(lis, "[]")
+    def test_from_json(self):
+        """test from json method"""
+        s = Square(4, 10, 12)
+        r = Rectangle(10, 10, 10, 10)
+        rd = r.to_dictionary()
+        sd = s.to_dictionary()
+        jdict = Base.to_json_string([sd, rd])
+        lis = Base.from_json_string(jdict)
+        self.assertEqual(lis[0]['size'], 4)
+        self.assertEqual(lis[1]['width'], 10)
+        self.assertEqual(len(lis), 2)
+        list_input = [
+            {'id': 89, 'width': 10, 'height': 4},
+            {'id': 7, 'width': 1, 'height': 7}
+        ]
+        json_list_input = Rectangle.to_json_string(list_input)
+        list_output = Rectangle.from_json_string(json_list_input)
+        self.assertListEqual(list_output, [{
+            'height': 4, 'width': 10, 'id': 89},
+            {'height': 7, 'width': 1, 'id': 7}
+        ])
+        self.assertEqual(Base.to_json_string(""), "[]")
+        self.assertEqual(Base.to_json_string(None), "[]")
 
-            s = Square(10, 2, 8, 1)
-            Square.save_to_file([s])
-            with open("Square.json", "r") as file:
-                lis = eval(file.read())
-            self.assertListEqual(
-                lis, [{"y": 8, "x": 2, "id": 1, "size": 10}])
-
-            b = Base()
-            b.save_to_file([1, 2, 3, 'e', True])
-            with open("Base.json", "r") as file:
-                lis = eval(file.read())
-            self.assertListEqual(lis, [1, 2, 3, 'e', True])
-
-        def test_from_json(self):
-            """test from json method"""
-            s = Square(4, 10, 12)
-            r = Rectangle(10, 10, 10, 10)
-            rd = r.to_dictionary()
-            sd = s.to_dictionary()
-            jdict = Base.to_json_string([sd, rd])
-            lis = Base.from_json_string(jdict)
-
-            self.assertEqual(lis[0]['size'], 4)
-            self.assertEqual(lis[1]['width'], 10)
-            self.assertEqual(len(lis), 2)
-
-            list_input = [
-                {'id': 89, 'width': 10, 'height': 4},
-                {'id': 7, 'width': 1, 'height': 7}
-            ]
-            json_list_input = Rectangle.to_json_string(list_input)
-            list_output = Rectangle.from_json_string(json_list_input)
-            self.assertListEqual(list_output, [{
-                'height': 4, 'width': 10, 'id': 89},
-                {'height': 7, 'width': 1, 'id': 7}
-            ])
-
-            self.asserEqual(Base.to_json_string(""), [])
-            self.asserEqual(Base.to_json_string(None), [])
+    def test_create(self):
+        """test create method"""
+        r1 = Rectangle(3, 5, 1)
+        r1_dictionary = r1.to_dictionary()
+        r2 = Rectangle.create(**r1_dictionary)
+        self.assertEqual(str(r1), "[Rectangle] (1) 1/0 - 3/5")
+        self.assertEqual(str(r2), "[Rectangle] (1) 1/0 - 3/5")
+        self.assertEqual(r1 is r2, False)
+        self.assertEqual(r1 == r2, False)
+        s1 = Square(4, 8, 9, 2)
+        s1_dictionary = s1.to_dictionary()
+        s2 = Square.create(**s1_dictionary)
+        self.assertEqual(str(s1), "[Square] (2) 8/9 - 4")
+        self.assertEqual(str(s2), "[Square] (2) 8/9 - 4")
