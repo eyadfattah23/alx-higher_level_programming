@@ -112,3 +112,101 @@ class TestSquare(unittest.TestCase):
             r.display()
             output = "  ###\n  ###\n  ###\n"
             self.assertEqual(output, ff.getvalue())
+
+        with self.assertRaises(TypeError):
+            r.display(5)
+
+    def test_str(self):
+        """test str representation"""
+
+        r1 = Square(4, 2, 1, 12)
+        r2 = Square(5, 5, 1)
+        r2.id = 14
+        self.assertEqual(str(r1), "[Square] (12) 2/1 - 4")
+        self.assertEqual(str(r2), "[Square] (14) 5/1 - 5")
+        r2.id = 0
+        r2.x = 0
+        r2.y = 0
+        self.assertEqual(str(r2), "[Square] (0) 0/0 - 5")
+
+    def test_update_no_args(self):
+        """test update method that assigns an argument to each attribute"""
+        r1 = Square(10, 10, 10)
+        r1.update()
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r1.height, 10)
+        self.assertEqual(r1.size, 10)
+        self.assertEqual(r1.x, 10)
+        self.assertEqual(r1.y, 10)
+
+    def test_update_args(self):
+        """test update method that assigns an argument to each attribute"""
+        r1 = Square(10, 10, 10)
+
+        r1.update(89)
+        self.assertEqual(r1.id, 89)
+
+        r1.update(89, 2)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.size, 2)
+
+        r1.update(89, 2, 3)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.size, 2)
+        self.assertEqual(r1.x, 3)
+
+        r1.update(89, 2, 3, 4)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.size, 2)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 4)
+
+        r1.update(89, 2, 3, 4, 5)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.size, 2)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 4)
+
+        r1.update(89, 2, 3, 4, 5, 8)
+        self.assertEqual(r1.id, 89)
+        self.assertEqual(r1.size, 2)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 4)
+
+    def test_update_kwargs(self):
+        """test update method that assigns an argument to each attribute"""
+        r1 = Square(10, 10, 10)
+        r1.update(size=1)
+        self.assertEqual(r1.size, 1)
+
+        r1.update(size=1, x=2)
+        self.assertEqual(r1.size, 1)
+        self.assertEqual(r1.x, 2)
+
+        r1.update(y=1, size=2, x=3, id=89)
+        self.assertEqual(r1.size, 2)
+        self.assertEqual(r1.x, 3)
+        self.assertEqual(r1.y, 1)
+
+        r1 = Square(10, 10, 10, 8)
+        r1.update(edo=5)
+        self.assertEqual(r1.x, 10)
+        self.assertEqual(r1.size, 10)
+        self.assertEqual(r1.y, 10)
+
+    def test_to_dict(self):
+        """test to_dictionary() method"""
+        r1 = Square(10, 1, 9, 1)
+        r1_dictionary = r1.to_dictionary()
+        self.assertDictEqual(
+            r1_dictionary, {'x': 1, 'y': 9, 'id': 1, 'size': 10})
+        self.assertIsInstance(r1_dictionary, dict)
+        r2 = Square(1, 1)
+        r2.update(**r1_dictionary)
+        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.x, 1)
+        self.assertEqual(r1.y, 9)
+        self.assertEqual(r1.size, 10)
+        r2 = Square(1, 1)
+        with self.assertRaises(TypeError):
+            r2.to_dictionary(55)
