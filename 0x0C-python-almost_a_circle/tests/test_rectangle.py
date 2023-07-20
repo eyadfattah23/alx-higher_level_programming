@@ -18,6 +18,9 @@ class TestRectangle(unittest.TestCase):
     def test_init(self):
         """test initialization"""
         r1 = Rectangle(10, 10)
+        r2 = Rectangle(10, 10)
+        self.assertAlmostEqual(r1.id, r2.id - 1)
+
         self.assertIsInstance(r1, Base)
         r1.id = 12
         self.assertAlmostEqual(r1.id, 12)
@@ -43,6 +46,8 @@ class TestRectangle(unittest.TestCase):
             r5 = Rectangle(10, -1)
         r6 = Rectangle(10, 5)
         self.assertAlmostEqual(r6.height, 5)
+        with self.assertRaises(AttributeError):
+            print(r6.__height)
 
     def test_width(self):
         """test width"""
@@ -57,6 +62,8 @@ class TestRectangle(unittest.TestCase):
             r5 = Rectangle(-1, 10)
         r6 = Rectangle(10, 5)
         self.assertAlmostEqual(r6.width, 10)
+        with self.assertRaises(AttributeError):
+            print(r6.__width)
 
     def test_xy(self):
         """test x and y coordinates"""
@@ -82,11 +89,17 @@ class TestRectangle(unittest.TestCase):
             r.y = 'x'
         with self.assertRaises(ValueError):
             r.y = -5
+        with self.assertRaises(AttributeError):
+            print(r.__x)
+        with self.assertRaises(AttributeError):
+            print(r.__y)
 
     def test_area(self):
         """test area calculation"""
         r1 = Rectangle(3, 2)
         self.assertAlmostEqual(r1.area(), 6)
+        with self.assertRaises(TypeError):
+            r1.area(5)
 
     def test_display(self):
         """test display method

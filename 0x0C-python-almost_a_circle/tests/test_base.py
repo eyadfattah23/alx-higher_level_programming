@@ -28,6 +28,10 @@ class TestBase(unittest.TestCase):
         b5 = Base()
         self.assertAlmostEqual(b5.id, 4)
 
+        self.assertAlmostEqual(b1.id + 1, b2.id)
+        self.assertAlmostEqual(b5.id, b2.id + 2)
+        self.assertAlmostEqual(b2.id - 1, b1.id)
+
     def test_to_json_string(self):
         """test to_json_string"""
         r1 = Rectangle(10, 7, 2, 8)
