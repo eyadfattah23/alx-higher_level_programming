@@ -194,6 +194,11 @@ class TestSquare(unittest.TestCase):
         self.assertEqual(r1.size, 10)
         self.assertEqual(r1.y, 10)
 
+        r1.update(15, 20, x=90)
+        self.assertEqual(r1.x, 10)
+        self.assertEqual(r1.size, 20)
+        self.assertEqual(r1.id, 15)
+
     def test_to_dict(self):
         """test to_dictionary() method"""
         r1 = Square(10, 1, 9, 1)
