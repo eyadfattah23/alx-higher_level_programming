@@ -71,8 +71,11 @@ class TestBase(unittest.TestCase):
             Rectangle.save_to_file([s, r])
             with open("Rectangle.json", "r") as file:
                 lis = eval(file.read())
-            self.assertListEqual(lis, [{"y": 8, "x": 2, "id": 1, "width": 10, "height": 7}, {
-                                 "y": 4, "x": 4, "id": 4, "width": 7, "height": 8}])
+            self.assertListEqual(lis, [{"y": 8, "x": 2, "id": 1,
+                                        "width": 10, "height": 7},
+                                       {"y": 4, "x": 4, "id": 4,
+                                           "width": 7, "height": 8}
+                                       ])
             Rectangle.save_to_file([])
             with open("Rectangle.json", "r") as file:
                 lis = file.read()
@@ -95,3 +98,30 @@ class TestBase(unittest.TestCase):
             with open("Base.json", "r") as file:
                 lis = eval(file.read())
             self.assertListEqual(lis, [1, 2, 3, 'e', True])
+
+        def test_from_json(self):
+            """test from json method"""
+            s = Square(4, 10, 12)
+            r = Rectangle(10, 10, 10, 10)
+            rd = r.to_dictionary()
+            sd = s.to_dictionary()
+            jdict = Base.to_json_string([sd, rd])
+            lis = Base.from_json_string(jdict)
+
+            self.assertEqual(lis[0]['size'], 4)
+            self.assertEqual(lis[1]['width'], 10)
+            self.assertEqual(len(lis), 2)
+
+            list_input = [
+                {'id': 89, 'width': 10, 'height': 4},
+                {'id': 7, 'width': 1, 'height': 7}
+            ]
+            json_list_input = Rectangle.to_json_string(list_input)
+            list_output = Rectangle.from_json_string(json_list_input)
+            self.assertListEqual(list_output, [{
+                'height': 4, 'width': 10, 'id': 89},
+                {'height': 7, 'width': 1, 'id': 7}
+            ])
+
+            self.asserEqual(Base.to_json_string(""), [])
+            self.asserEqual(Base.to_json_string(None), [])
