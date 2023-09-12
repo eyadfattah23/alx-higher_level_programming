@@ -1,8 +1,4 @@
 #!/usr/bin/node
-let n = 0;
-process.argv.forEach((val, index) => {
-  n += 1;
-});
 function add (n, m) {
   return n + m;
 }
