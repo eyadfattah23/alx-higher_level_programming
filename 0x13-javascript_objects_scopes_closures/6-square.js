@@ -7,7 +7,7 @@ class Square extends NSquare {
   }
 
   charPrint (c) {
-    if (c != undefined) {
+    if (c !== undefined) {
       for (let i = 0; i < this.width; i++) {
         console.log(c.repeat(this.width));
       }
