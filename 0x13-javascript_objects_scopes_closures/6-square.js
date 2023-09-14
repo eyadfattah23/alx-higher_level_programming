@@ -3,7 +3,7 @@
 const NSquare = require('./5-square');
 class Square extends NSquare {
   constructor (size) {
-    super(size);
+    super(size, size);
   }
 
   charPrint (c) {
