@@ -10,8 +10,12 @@ if __name__ == '__main__':
                          passwd=mysql_password, db=db_name)
 
     cursor = db.cursor()
+
+    cursor.execute('SELECT cities.id, cities.name, states.name \
+        FROM cities, states\
+            WHERE cities.state_id = states.id \
+                ORDER BY cities.id ASC;')
+
     records = cursor.fetchall()
     for record in records:
         print(record)
-
-    cursor.execute('')
