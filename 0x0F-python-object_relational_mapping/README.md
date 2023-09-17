@@ -76,3 +76,15 @@ INSERT INTO cities (state_id, name) VALUES (4, "New York");
 INSERT INTO cities (state_id, name) VALUES (5, "Las Vegas"), (5, "Reno"), (5, "Henderson"), (5, "Carson City");
 
 ````
+
+3->
+
+```sql
+-- Create database hbtn_0e_6_usa
+CREATE DATABASE IF NOT EXISTS hbtn_0e_6_usa;
+USE hbtn_0e_6_usa;
+SHOW CREATE TABLE states;
+-- Insert states
+INSERT INTO states (name) VALUES ("California"), ("Arizona"), ("Texas"), ("New York"), ("Nevada");
+
+```
