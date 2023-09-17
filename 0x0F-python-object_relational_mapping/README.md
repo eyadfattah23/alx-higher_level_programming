@@ -1,1 +1,27 @@
 # Python - Object-relational mapping
+
+## Learning Objectives:
+
+    How to connect to a MySQL database from a Python script
+
+    How to SELECT rows in a MySQL table from a Python script
+
+    How to INSERT rows in a MySQL table from a Python script
+
+    What ORM means
+
+    How to map a Python Class to a MySQL table
+
+    How to create a Python Virtual Environment
+
+## resources:
+
+### venv:
+
+> **youtube**(elzero, some english channels)
+
+> **full_description**(https://realpython.com/python-virtual-environments-a-primer/#treat-them-as-disposables)
+
+### mysqldb(client):
+
+> **summary**:https://www.mikusa.com/python-mysql-docs/row_results.html
