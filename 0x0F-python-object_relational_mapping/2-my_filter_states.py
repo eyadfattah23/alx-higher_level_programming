@@ -15,7 +15,7 @@ if __name__ == '__main__':
     cursor = db.cursor()
     cursor.execute(
         'SELECT * FROM states \
-            WHERE name = "{}" COLLATE utf8mb4_unicode_ci order by id'.format(state_name))
+            WHERE name = "{}" order by id'.format(state_name))
     records = cursor.fetchall()
     for record in records:
         print(record)
