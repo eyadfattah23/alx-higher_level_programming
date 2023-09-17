@@ -11,7 +11,7 @@ if __name__ == "__main__":
     Session = sessionmaker(engine)
     session = Session()
 
-    records = session.query(State).filter_by(id=1).order_by(State.id).all()
+    records = session.query(State).filter_by(id=1).order_by(State.id)
     try:
         print(f'{records[0].id}:', records[0].name)
     except Exception as e:
