@@ -26,6 +26,10 @@
 
 > **summary**:https://www.mikusa.com/python-mysql-docs/row_results.html
 
+### sqlalchemy:
+
+> **summary**:https://www.youtube.com/watch?v=AKQ3XEDI9Mw&t=208s
+
 ### DBS:
 
 1->
