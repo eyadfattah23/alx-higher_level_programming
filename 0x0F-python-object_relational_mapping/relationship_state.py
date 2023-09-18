@@ -2,7 +2,7 @@
 '''contains the class definition of
 State and an instance Base = declarative_base():'''
 from sqlalchemy import create_engine,\
-    MetaData, Table, Column, Integer, String
+    Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 
@@ -28,5 +28,5 @@ class State(Base):
     id = Column(Integer, primary_key=True,
                 nullable=False, autoincrement='ignore_fk')
     name = Column(String(128), nullable=False)
-    cities = relationship("relationship_city.City",
+    cities = relationship("City",
                           cascade="all, delete", backref="state")

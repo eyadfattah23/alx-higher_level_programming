@@ -4,8 +4,7 @@ script that creates
 the State “California” with the City “San Francisco”
 from the database hbtn_0e_100_usa'''
 import sys
-from model_state import Base
-from relationship_state import State
+from relationship_state import State, Base
 from relationship_city import City
 from sqlalchemy import (create_engine)
 from sqlalchemy.orm import sessionmaker
@@ -18,11 +17,10 @@ if __name__ == "__main__":
 
     new_state = State()
     new_state.name = 'California'
-    session.add(new_state)
 
     new_city = City()
     new_city.name = 'San Francisco'
-    new_city.state_id = 1
-    session.add(new_city)
+    new_state.cities.append(new_city)
+    session.add(new_state)
 
     session.commit()
