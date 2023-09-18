@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const array = require('./100-data').list;
-var i = 0;
+let i = 0;
 function arr_mul(element) {
 	return element * i++;
 }
