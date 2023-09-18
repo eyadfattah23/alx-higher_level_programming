@@ -119,3 +119,15 @@ INSERT INTO cities (state_id, name) VALUES (4, "New York");
 INSERT INTO cities (state_id, name) VALUES (5, "Las Vegas"), (5, "Reno"), (5, "Henderson"), (5, "Carson City");
 
 ```
+
+100->
+
+```sql
+-- Create the database hbtn_0e_100_usa
+CREATE DATABASE IF NOT EXISTS hbtn_0e_100_usa;
+USE hbtn_0e_100_usa;
+
+SELECT * FROM states;
+SELECT * FROM cities;
+
+```
