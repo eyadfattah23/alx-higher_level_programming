@@ -1,10 +1,10 @@
 #!/usr/bin/node
 const array = require('./100-data').list;
 var i = 0;
-function arr_mul(params) {
-
+function arr_mul(element) {
+	return element * i++;
 }
-const nlist = array.map((element) => element * array.indexOf(element));
+const nlist = array.map((element) => element * i++);
 
 console.log(array);
 console.log(nlist);
