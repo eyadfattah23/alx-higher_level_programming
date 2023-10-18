@@ -1,5 +1,7 @@
 # SQL - More queries
 
+**NOTE**: the first commit message of each file means create script (description) if create is not typed
+
 ## Resources:
 
 [cheat sheet](https://intellipaat.com/mediaFiles/2019/02/SQL-Commands-Cheat-Sheet.pdf?US)
