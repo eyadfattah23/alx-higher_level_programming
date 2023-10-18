@@ -1,6 +1,6 @@
 # SQL - Introduction
 
-**NOTE**: the first commit message of each file means create (title) if create is not typed
+**NOTE**: the first commit message of each file means create script (description) if create is not typed
 
 ## resources:
 
