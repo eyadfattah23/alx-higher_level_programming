@@ -2,5 +2,5 @@
 
 ALTER TABLE first_table
   DEFAULT CHARACTER SET utf8mb4,
-  MODIFY name CHAR(10)
+  MODIFY name VARCHAR(256)
     CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
