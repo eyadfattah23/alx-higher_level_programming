@@ -1,5 +1,7 @@
 # SQL - Introduction
 
+**NOTE**: the first commit message of each file means create (title) if create is not typed
+
 ## resources:
 
 https://intranet.alxswe.com/rltoken/1oU1LwCksQLXjs6fZYezrw
