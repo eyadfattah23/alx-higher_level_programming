@@ -5,4 +5,5 @@ FROM tv_genres
 LEFT JOIN tv_show_genres
 ON tv_show_genres.genre_id = tv_genres.id
 GROUP BY tv_genres.name
+HAVING number_of_shows > 0
 ORDER BY number_of_shows DESC;
