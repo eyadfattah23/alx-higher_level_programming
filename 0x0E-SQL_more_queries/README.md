@@ -2,7 +2,15 @@
 
 **NOTE**: the first commit message of each file means create script (description) if create is not typed
 
+## **RUN BY**:
+
+    cat [files_3_to_9]| mysql -hlocalhost -uroot -p hbtn_0d_tvshows
+
+    cat [files_10_to_101]| mysql -hlocalhost -uroot -p hbtn_0d_tvshows
+
 ## Resources:
+
+[DB2 LINK](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/274/hbtn_0d_tvshows_rate.sql)
 
 [cheat sheet](https://intellipaat.com/mediaFiles/2019/02/SQL-Commands-Cheat-Sheet.pdf?US)
 
