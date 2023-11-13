@@ -13,3 +13,9 @@ if (process.argv.length === 2 || !num) {
     }
   }
 }
+/**
+ *   for (let index = 0; index < process.argv[2]; index++) {
+console.log('X'.repeat(parseInt(process.argv[2])));
+  }
+}
+ */
