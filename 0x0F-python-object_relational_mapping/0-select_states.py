@@ -14,7 +14,8 @@ if __name__ == '__main__':
 
     cur = conn.cursor()
 
-    states = cur.execute("SELECT * FROM states")
+    states = cur.execute("SELECT * FROM states order by id")
+
     rows = cur.fetchall()
     for row in rows:
         print(row)
