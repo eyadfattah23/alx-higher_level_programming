@@ -163,5 +163,8 @@ INSERT INTO cities (state_id, name) VALUES (5, "Las Vegas"), (5, "Reno"), (5, "H
 
 ````
 
-**_Run command:: _**
-**./file.py user passwd DB**
+**_Run command:: _ .**
+**/file.py user passwd DB**
+
+**to activate venv:**
+**source venvs_folder/venv/bin/activate**
