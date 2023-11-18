@@ -15,7 +15,7 @@ if __name__ == '__main__':
     cur = conn.cursor()
 
     states = cur.execute(
-        "SELECT * FROM states where name like 'N%' order by id")
+        "SELECT * FROM states where name like BINARY %s order by id", ('N%', ))
 
     rows = cur.fetchall()
     for row in rows:
