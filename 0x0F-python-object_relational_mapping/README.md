@@ -160,4 +160,8 @@ INSERT INTO cities (state_id, name) VALUES (4, "New York");
 INSERT INTO cities (state_id, name) VALUES (5, "Las Vegas"), (5, "Reno"), (5, "Henderson"), (5, "Carson City");
 
 ```
+
 ````
+
+**_Run command:: _**
+**./file.py user passwd DB**
