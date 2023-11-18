@@ -17,7 +17,8 @@ if __name__ == '__main__':
     cur = conn.cursor()
 
     states = cur.execute(
-        "SELECT * FROM states where name = %s order by id", (state_name_searched, ))
+        "SELECT * FROM states where name = %s order by id",
+        (state_name_searched, ))
 
     rows = cur.fetchall()
     for row in rows:
