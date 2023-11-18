@@ -36,7 +36,7 @@ if __name__ == '__main__':
     print()
 
 
-""" other way to prin twith this format
+""" other way to print with this format
 city_names = [record[0] for record in records]
 
     # Join the city names with commas and print
