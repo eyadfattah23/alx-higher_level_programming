@@ -34,3 +34,12 @@ if __name__ == '__main__':
             else:
                 print("{}".format(col), end='')
     print()
+
+
+""" other way to prin twith this format
+city_names = [record[0] for record in records]
+
+    # Join the city names with commas and print
+    cities_str = ", ".join(city_names)
+    print(cities_str)
+    """
