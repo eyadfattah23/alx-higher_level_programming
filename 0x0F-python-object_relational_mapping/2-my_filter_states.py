@@ -16,7 +16,8 @@ if __name__ == '__main__':
 
     cur = conn.cursor()
 
-    query = "SELECT * FROM states WHERE name like binary \"{}\" ORDER BY id".format(
+    query = "SELECT * FROM states WHERE name like \
+        binary \"{}\" ORDER BY id".format(
         state_name_searched)
     states = cur.execute(
         query)
