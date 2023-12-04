@@ -6,6 +6,8 @@
 
 > [HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
 
+> [all options for curl](https://www.warp.dev/terminus/curl-post-request)
+
 ## General
 
 > What a URL is:
