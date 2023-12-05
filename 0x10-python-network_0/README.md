@@ -6,7 +6,7 @@
 
 > [HTTP Cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies)
 
-> [all options for curl](https://www.warp.dev/terminus/curl-post-request)
+> [all options for curl](https://www.warp.dev/terminus/curl-post-request) && https://phoenixnap.com/kb/curl-command
 
 ## General
 
