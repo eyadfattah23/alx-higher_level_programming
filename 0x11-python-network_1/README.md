@@ -15,3 +15,7 @@
 - [urllib summary](https://www.youtube.com/watch?v=LosIGgon_KM)
 
 * [urllib documentation](https://docs.python.org/3/howto/urllib2.html)
+
+* [requests detailed video](https://www.youtube.com/watch?v=tb8gHvYlCFs&t=300s)
+
+* [requests documentation](https://requests.readthedocs.io/en/latest/)
