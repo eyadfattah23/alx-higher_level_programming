@@ -22,7 +22,7 @@
 
 * https://jquery-tutorial.net/dom-manipulation/getting-and-setting-content/
 
-* Using elements, ID's and classes
+* https://www.w3schools.com/jquery/
 
 * [what's js ](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript)
 
