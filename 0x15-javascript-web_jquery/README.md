@@ -141,3 +141,5 @@ These are basic examples. You can bind to many other events such as mouse events
 <head>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
+
+code is `semistandard` compliant with the flag `--global $`: `semistandard *.js --global $`
