@@ -10,6 +10,10 @@ https://github.com/request/request?tab=readme-ov-file#forms
 
 https://github.com/mbeaudru/modern-js-cheatsheet?tab=readme-ov-file#short-explanation
 
+**https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs**
+
+**https://nodejs.org/en/learn/manipulating-files/reading-files-with-nodejs**
+
 ## General
 
 - How to manipulate JSON data
