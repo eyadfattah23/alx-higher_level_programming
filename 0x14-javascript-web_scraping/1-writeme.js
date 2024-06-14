@@ -1,7 +1,11 @@
 #!/usr/bin/node
-
 const fs = require('fs');
-const fInput = process.argv[3];
-fs.writeFile(process.argv[2], fInput, (err) => {
-  if (err) throw err;
-});
+
+const content = process.argv[3];
+
+try {
+  fs.writeFileSync(process.argv[2], content);
+  // file written successfully
+} catch (err) {
+  console.error(err);
+}
