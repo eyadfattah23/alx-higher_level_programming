@@ -45,3 +45,9 @@ $
 ```
 
 ![joins](image.png)
+
+
+* import a table.sql file into a database:
+```bash
+mysql -u root -p hbtn_0c_0 < file.sql
+```
