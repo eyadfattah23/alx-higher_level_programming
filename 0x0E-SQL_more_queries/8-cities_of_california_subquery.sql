@@ -6,3 +6,4 @@ WHERE state_id = (
 	WHERE name = 'California'
 )
 ORDER BY cities.id;
+-- select * from cities where state_id in (select id from states where name = "California");
